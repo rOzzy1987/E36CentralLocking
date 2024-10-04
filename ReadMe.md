@@ -23,9 +23,16 @@ is also 12V. the input is stepped down by a voltage divider to get about 5V out 
 The output is switched through an NPN and a PNP transistor with an LED indicator (mainly for 
 debug purposes)
 
+![Schematic](https://github.com/rOzzy1987/E36CentralLocking/blob/main/doc/sch.png)
+
+## Note
+
+To reduce power consumption consider breaking the pullup line to the USB D+ pin on the dev board.
+In my testing it reduce power consumption from 4.8mA to 2.2mA.
+
 # Result
 
 By default the microcontroller is in a sleep state. Whenever it receives a signal on the input 
 it wakes up and starts a counter. On receiving the first signal, a 500ms pulse is sent to the 
 output to ensure proper locking. If it receives another signal within 5 seconds, it will send 
-out a 15s signal to roll up the windows
+out a 15s signal to roll up the windows.
